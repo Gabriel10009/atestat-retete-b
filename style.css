@@ -1,0 +1,88 @@
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0; padding: 20px;
+    background: linear-gradient(to right, #ffefba, #ffffff);
+}
+
+.antet { text-align: center; margin-bottom: 30px; }
+
+#baraCautare {
+    padding: 12px; width: 60%;
+    border: 2px solid #e67e22; border-radius: 20px; outline: none;
+}
+
+.butoane-categorii { text-align: center; margin-bottom: 20px; }
+
+.butoane-categorii button {
+    background-color: #e67e22; color: white; border: none;
+    padding: 10px 20px; margin: 5px; border-radius: 5px; cursor: pointer;
+}
+
+.container-retete {
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;
+}
+
+.box-reteta {
+    background: white; border: 1px solid #ddd; width: 220px;
+    text-align: center; border-radius: 10px; overflow: hidden;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+}
+
+.img-reteta { width: 100%; height: 150px; object-fit: cover; }
+
+.box-reteta h3 { margin: 10px 0; }
+
+.box-reteta button {
+    margin-bottom: 15px; background: #27ae60; color: white;
+    border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer;
+}
+
+/* Stiluri Modal */
+.fundal-negru {
+    display: none; position: fixed; z-index: 100;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.8);
+}
+
+.continut-fereastra {
+    background-color: white; margin: 5% auto; padding: 25px;
+    width: 60%; border-radius: 15px; position: relative;
+}
+
+.inchide {
+    position: absolute; top: 10px; right: 20px;
+    font-size: 30px; cursor: pointer;
+}
+
+/* --- Ajustări pentru Mobil --- */
+@media (max-width: 768px) {
+    
+    /* Facem bara de căutare să ocupe aproape toată lățimea */
+    #baraCautare {
+        width: 90%;
+    }
+
+    /* Butoanele de categorii să fie mai ușor de apăsat cu degetul */
+    .butoane-categorii button {
+        width: 45%; /* Punem câte două pe rând */
+        margin: 5px 1%;
+        padding: 12px;
+    }
+
+    /* Containerul de rețete se va pune pe o singură coloană */
+    .container-retete {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .box-reteta {
+        width: 85%; /* Cardul ocupă aproape tot ecranul telefonului */
+    }
+
+    /* Fereastra de detalii să fie mai mare pe mobil ca să poți citi ușor */
+    .continut-fereastra {
+        width: 90%;
+        margin: 20% auto;
+        padding: 20px;
+    }
+}

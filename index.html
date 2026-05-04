@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proiect Atestat - Rețete Culinare</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="antet">
+        <h1>Gătește cu Stil</h1>
+        <p>Proiect realizat de [Numele Tău]</p>
+        <input type="text" id="baraCautare" placeholder="Caută o rețetă..." onkeyup="cautaReteta()">
+    </div>
+
+    <div class="butoane-categorii">
+        <button onclick="filtreaza('toate')">Toate</button>
+        <button onclick="filtreaza('fel-principal')">Fel Principal</button>
+        <button onclick="filtreaza('desert')">Deserturi</button>
+        <button onclick="filtreaza('aperitiv')">Aperitive</button>
+    </div>
+
+    <div id="zonaRetete" class="container-retete">
+        
+        <!-- FEL PRINCIPAL -->
+        <div class="box-reteta" data-tip="fel-principal">
+            <img src="img/carbonara.jpg" class="img-reteta">
+            <h3>Paste Carbonara</h3>
+            <button onclick="deschide('modal-carbonara')">Vezi detalii</button>
+        </div>
+
+        <div class="box-reteta" data-tip="fel-principal">
+            <img src="img/pui-smantana.jpg" class="img-reteta">
+            <h3>Pui cu Smântână</h3>
+            <button onclick="deschide('modal-pui')">Vezi detalii</button>
+        </div>
+
+        <div class="box-reteta" data-tip="fel-principal">
+            <img src="img/tocanita-cartofi.jpg" class="img-reteta">
+            <h3>Tocăniță Cartofi</h3>
+            <button onclick="deschide('modal-tocanita')">Vezi detalii</button>
+        </div>
+
+        <div class="box-reteta" data-tip="fel-principal">
+            <img src="img/orez-legume.jpg" class="img-reteta">
+            <h3>Orez cu Legume</h3>
+            <button onclick="deschide('modal-orez')">Vezi detalii</button>
+        </div>
+
+        <!-- DESERTURI -->
+        <div class="box-reteta" data-tip="desert">
+            <img src="img/papanasi.jpg" class="img-reteta">
+            <h3>Papanași</h3>
+            <button onclick="deschide('modal-papanasi')">Vezi detalii</button>
+        </div>
+
+        <div class="box-reteta" data-tip="desert">
+            <img src="img/negresa.jpg" class="img-reteta">
+            <h3>Negresă</h3>
+            <button onclick="deschide('modal-negresa')">Vezi detalii</button>
+        </div>
+
+        <div class="box-reteta" data-tip="desert">
+            <img src="img/salam-biscuiti.jpg" class="img-reteta">
+            <h3>Salam Biscuiți</h3>
+            <button onclick="deschide('modal-salam')">Vezi detalii</button>
+        </div>
+
+        <div class="box-reteta" data-tip="desert">
+            <img src="img/tiramisu.jpg" class="img-reteta">
+            <h3>Tiramisu</h3>
+            <button onclick="deschide('modal-tiramisu')">Vezi detalii</button>
+        </div>
+
+        <!-- APERITIVE -->
+        <div class="box-reteta" data-tip="aperitiv">
+            <img src="img/bruschete.jpg" class="img-reteta">
+            <h3>Bruschete</h3>
+            <button onclick="deschide('modal-bruschete')">Vezi detalii</button>
+        </div>
+
+        <div class="box-reteta" data-tip="aperitiv">
+            <img src="img/salata-vinete.jpg" class="img-reteta">
+            <h3>Salată Vinete</h3>
+            <button onclick="deschide('modal-vinete')">Vezi detalii</button>
+        </div>
+
+        <div class="box-reteta" data-tip="aperitiv">
+            <img src="img/oua-umplute.jpg" class="img-reteta">
+            <h3>Ouă Umplute</h3>
+            <button onclick="deschide('modal-oua')">Vezi detalii</button>
+        </div>
+
+        <div class="box-reteta" data-tip="aperitiv">
+            <img src="img/guacamole.jpg" class="img-reteta">
+            <h3>Guacamole</h3>
+            <button onclick="deschide('modal-guacamole')">Vezi detalii</button>
+        </div>
+
+    </div>
+
+    <!-- FERESTRELE MODALE -->
+    
+    <div id="modal-carbonara" class="fundal-negru">
+        <div class="continut-fereastra">
+            <span class="inchide" onclick="inchide('modal-carbonara')">&times;</span>
+            <h2>Paste Carbonara</h2>
+            <img src="img/carbonara.jpg" style="width:50%; border-radius:10px; display:block; margin:auto;">
+            <p><b>Ingrediente:</b> Paste, ouă, pancetta, parmezan.</p>
+            <p><b>Preparare:</b> Se fierb pastele. Se prăjește carnea. Se amestecă ouăle cu brânza și se adaugă peste paste.</p>
+        </div>
+    </div>
+
+    <div id="modal-pui" class="fundal-negru">
+        <div class="continut-fereastra">
+            <span class="inchide" onclick="inchide('modal-pui')">&times;</span>
+            <h2>Pui cu Smântână</h2>
+            <img src="img/pui-smantana.jpg" style="width:50%; border-radius:10px; display:block; margin:auto;">
+            <p><b>Ingrediente:</b> Piept pui, smântână gătit, ciuperci, usturoi.</p>
+            <p><b>Preparare:</b> Se prăjește puiul, se adaugă ciupercile și la final smântâna cu usturoiul.</p>
+        </div>
+    </div>
+
+    <div id="modal-tocanita" class="fundal-negru">
+        <div class="continut-fereastra">
+            <span class="inchide" onclick="inchide('modal-tocanita')">&times;</span>
+            <h2>Tocăniță de Cartofi</h2>
+            <img src="img/tocanita-cartofi.jpg" style="width:50%; border-radius:10px; display:block; margin:auto;">
+            <p><b>Ingrediente:</b> Cartofi, ceapă, ardei, pastă tomate.</p>
+            <p><b>Preparare:</b> Se călesc legumele, se adaugă apa și se fierb până scade sosul.</p>
+        </div>
+    </div>
+
+    <div id="modal-orez" class="fundal-negru">
+        <div class="continut-fereastra">
+            <span class="inchide" onclick="inchide('modal-orez')">&times;</span>
+            <h2>Orez cu Legume</h2>
+            <img src="img/orez-legume.jpg" style="width:50%; border-radius:10px; display:block; margin:auto;">
+            <p><b>Ingrediente:</b> Orez, mazăre, morcov, unt.</p>
+            <p><b>Preparare:</b> Se călește orezul, se adaugă legumele și supa treptat.</p>
+        </div>
+    </div>
+
+    <div id="modal-papanasi" class="fundal-negru">
+        <div class="continut-fereastra">
+            <span class="inchide" onclick="inchide('modal-papanasi')">&times;</span>
+            <h2>Papanași</h2>
+            <img src="img/papanasi.jpg" style="width:50%; border-radius:10px; display:block; margin:auto;">
+            <p><b>Ingrediente:</b> Brânză vaci, făină, ouă, dulceață.</p>
+            <p><b>Preparare:</b> Se formează gogoșile și se prăjesc. Se servesc cu smântână și dulceață.</p>
+        </div>
+    </div>
+
+    <div id="modal-negresa" class="fundal-negru">
+        <div class="continut-fereastra">
+            <span class="inchide" onclick="inchide('modal-negresa')">&times;</span>
+            <h2>Negresă</h2>
+            <img src="img/negresa.jpg" style="width:50%; border-radius:10px; display:block; margin:auto;">
+            <p><b>Ingrediente:</b> Făină, cacao, zahăr, lapte, unt.</p>
+            <p><b>Preparare:</b> Se amestecă totul și se coace 30 de minute.</p>
+        </div>
+    </div>
+
+    <div id="modal-salam" class="fundal-negru">
+        <div class="continut-fereastra">
+            <span class="inchide" onclick="inchide('modal-salam')">&times;</span>
+            <h2>Salam de Biscuiți</h2>
+            <img src="img/salam-biscuiti.jpg" style="width:50%; border-radius:10px; display:block; margin:auto;">
+            <p><b>Ingrediente:</b> Biscuiți, cacao, lapte, rahat, rom.</p>
+            <p><b>Preparare:</b> Se amestecă biscuiții rupți cu siropul cald de cacao.</p>
+        </div>
+    </div>
+
+    <div id="modal-tiramisu" class="fundal-negru">
+        <div class="continut-fereastra">
+            <span class="inchide" onclick="inchide('modal-tiramisu')">&times;</span>
+            <h2>Tiramisu</h2>
+            <img src="img/tiramisu.jpg" style="width:50%; border-radius:10px; display:block; margin:auto;">
+            <p><b>Ingrediente:</b> Pișcoturi, mascarpone, cafea, cacao.</p>
+            <p><b>Preparare:</b> Se înmoaie pișcoturile în cafea și se pun în straturi cu crema.</p>
+        </div>
+    </div>
+
+    <div id="modal-bruschete" class="fundal-negru">
+        <div class="continut-fereastra">
+            <span class="inchide" onclick="inchide('modal-bruschete')">&times;</span>
+            <h2>Bruschete cu Roșii</h2>
+            <img src="img/bruschete.jpg" style="width:50%; border-radius:10px; display:block; margin:auto;">
+            <p><b>Ingrediente:</b> Pâine, roșii, usturoi, busuioc.</p>
+            <p><b>Preparare:</b> Se prăjește pâinea, se freacă cu usturoi și se pun roșiile.</p>
+        </div>
+    </div>
+
+    <div id="modal-vinete" class="fundal-negru">
+        <div class="continut-fereastra">
+            <span class="inchide" onclick="inchide('modal-vinete')">&times;</span>
+            <h2>Salată de Vinete</h2>
+            <img src="img/salata-vinete.jpg" style="width:50%; border-radius:10px; display:block; margin:auto;">
+            <p><b>Ingrediente:</b> Vinete coapte, ceapă, ulei, sare.</p>
+            <p><b>Preparare:</b> Se toacă vinetele și se amestecă cu ulei și ceapă.</p>
+        </div>
+    </div>
+
+    <div id="modal-oua" class="fundal-negru">
+        <div class="continut-fereastra">
+            <span class="inchide" onclick="inchide('modal-oua')">&times;</span>
+            <h2>Ouă Umplute</h2>
+            <img src="img/oua-umplute.jpg" style="width:50%; border-radius:10px; display:block; margin:auto;">
+            <p><b>Ingrediente:</b> Ouă fierte, maioneză, muștar, pateu.</p>
+            <p><b>Preparare:</b> Se face pasta din gălbenușuri și se umplu albușurile.</p>
+        </div>
+    </div>
+
+    <div id="modal-guacamole" class="fundal-negru">
+        <div class="continut-fereastra">
+            <span class="inchide" onclick="inchide('modal-guacamole')">&times;</span>
+            <h2>Guacamole</h2>
+            <img src="img/guacamole.jpg" style="width:50%; border-radius:10px; display:block; margin:auto;">
+            <p><b>Ingrediente:</b> Avocado, roșii, ceapă, lămâie.</p>
+            <p><b>Preparare:</b> Se zdrobește avocado și se amestecă cu restul legumelor tăiate.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
